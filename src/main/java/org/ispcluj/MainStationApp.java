@@ -22,8 +22,8 @@ public class MainStationApp {
         Map<Integer, MenuAction> menuActions = new HashMap<>();
 
         // --- TODO: Initialize your Shared Resources here ---
-        // Example: PlatformQueue queue = new PlatformQueue();
-        // List<TrainService> structuralManifest = populateSampleSchedule();
+        // Example: TerminalStation terminalStation = new TerminalStation();
+        // List<Train> structuralSchedule = populateSampleSchedule();
         // ------------------------------------------------------------
 
         // Registering menu options using Lambdas and Functional Interfaces
@@ -88,7 +88,7 @@ public class MainStationApp {
     private static void printMenu() {
         System.out.println("\n=== Central Station Platform Allocation Console ===");
         System.out.println("1. Run Real-time Allocation Engine");
-        System.out.println("2. Simulate & Trigger Route Exceptions Check");
+        System.out.println("2. Simulate & Trigger Signal Exceptions Check");
         System.out.println("3. View Total Processed Trains / Unique Registry Stats");
         System.out.println("4. Shutdown & Terminate Station Program");
     }
@@ -97,16 +97,16 @@ public class MainStationApp {
      * Helper method to generate sample initial data for testing.
      * Students may use, modify, or extend this dataset.
      */
-    private static List<TrainService> populateSampleSchedule() {
+    private static List<Train> populateSampleSchedule() {
         return List.of(
-                //TODO: this gives errors because TrainService class is not implemented
+                //TODO: this gives errors because Train class is not implemented
 
-                // Format: Service ID, Passenger Count, Line Code
-                new TrainService("IC-120", 420, "P2"),
-                new TrainService("R-441", 720, "P5"), // Should be filtered out via Streams (>600 passengers)
-                new TrainService("IR-33", 180, "P1"),
-                new TrainService("IC-120", 310, "P2"), // Duplicate ID test case
-                new TrainService("S-88", 260, null)     // Edge case for checked exception test
+                // Format: Train ID, Type, Origin
+                new Train("IC-120", "InterCity", "Cluj-Napoca"),
+                new Train("FR-441", "Freight", "Arad"), // Should be filtered out via Streams (Freight during rush hour)
+                new Train("IR-33", "Regional", "Sibiu"),
+                new Train("IC-120", "InterCity", "Cluj-Napoca"), // Duplicate ID test case
+                new Train("S-88", "InterCity", null)     // Edge case for checked exception test
         );
     }
 }

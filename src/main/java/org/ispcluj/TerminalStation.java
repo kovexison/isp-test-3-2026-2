@@ -1,5 +1,5 @@
 package org.ispcluj;
 
-public class PlatformQueue {
+public class TerminalStation {
     //TODO: REQ-5
 }
